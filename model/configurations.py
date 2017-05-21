@@ -1,2 +1,2 @@
 text_color = "white"
-background_color = "grey"
+background_color = "black"
