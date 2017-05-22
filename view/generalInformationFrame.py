@@ -13,8 +13,10 @@ class GeneralInformationFrame(Frame):
 
         self.create_temperature_widget(parent)
 
-    def create_temperature_widget(self, generalFrame):
-        self.temperature_frame = Frame(generalFrame, bg=background_color)
+        self.grid()
+
+    def create_temperature_widget(self, general_frame):
+        self.temperature_frame = Frame(general_frame, bg=background_color)
 
         temperature_text = "Current temperature: " + str(get_current_temperature())
         temperature_label = Label(self.temperature_frame, text=temperature_text)
@@ -28,8 +30,14 @@ class GeneralInformationFrame(Frame):
         max_temperature_label = Label(self.temperature_frame, text=max_temperature_text)
         max_temperature_label.configure(bg=background_color, fg=text_color)
 
-        temperature_label.grid()
-        min_temperature_label.grid()
-        max_temperature_label.grid()
+        weather_image = get_image_for_weather()
+        weather_image_view = Label(self.temperature_frame, image=weather_image)
+        weather_image_view.image = weather_image
+        weather_image_view.configure(bg=background_color, width=80, height=80)
+
+        temperature_label.grid(row=0, column=0, rowspan=1, columnspan=1, sticky="nsew")
+        min_temperature_label.grid(row=1, column=0, rowspan=1, columnspan=1, sticky="nsew")
+        max_temperature_label.grid(row=2, column=0, rowspan=1, columnspan=1, sticky="nsew")
+        weather_image_view.grid(row=3, column=0, rowspan=1, columnspan=1)
 
         self.temperature_frame.grid()
