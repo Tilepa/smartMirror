@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 from model.configurations import *
 from controller.weatherInformation import *
 

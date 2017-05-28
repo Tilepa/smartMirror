@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 from view.generalInformationFrame import GeneralInformationFrame
 from view.calenderFrame import CalenderFrame
@@ -39,7 +39,6 @@ class App(Tk):
         self.newsBlockFrame.grid(row=0, column=1, rowspan=1, columnspan=2, sticky="nsew")
         self.todayTodosFrame.grid(row=0, column=3, rowspan=1, columnspan=1, sticky="nsew")
         self.kalenderFrame.grid(row=1, column=2, rowspan=1, columnspan=2, sticky="nsew")
-
 
 
 root = Tk()

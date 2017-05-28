@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 class CalenderFrame(Frame):
     def __init__(self, parent, width, height):

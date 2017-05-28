@@ -1,12 +1,9 @@
-import base64
-import urllib
-
-import cStringIO
 import pyowm
 from PIL import Image
 from PIL import ImageTk
+import io
 
-from positions import *
+from controller.positions import *
 
 api_key = '4731b498cb45d327e16017ec7f843eb1'
 
@@ -46,7 +43,7 @@ def get_image_for_weather():
     url = "http://openweathermap.org/img/w/" + weather_icon_name + ".png"
 
     request = requests.get(url).content
-    encoded_string = cStringIO.StringIO(request)
+    encoded_string = io.BytesIO(request)
     image = Image.open(encoded_string).convert("RGB")
     photo = ImageTk.PhotoImage(image)
 
