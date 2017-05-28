@@ -1,6 +1,7 @@
 from tkinter import *
 from model.configurations import *
 from controller.weatherInformation import *
+from controller.googleAccess import *
 
 
 class GeneralInformationFrame(Frame):
