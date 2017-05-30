@@ -1,0 +1,12 @@
+\select@language {german}
+\contentsline {section}{\numberline {1}Projektbeschreibung}{3}{section.1}
+\contentsline {section}{\numberline {2}Materialliste}{3}{section.2}
+\contentsline {section}{\numberline {3}Projektablauf}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Zusammenbau des Spiegels}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Raspberry Pi anschlie\IeC {\ss }en}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Ben\IeC {\"o}tigte Libraries installieren}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Erste grafische Oberfl\IeC {\"a}che entwickeln}{5}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}GUI versch\IeC {\"o}nern und auf Userdaten zugreifen}{5}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Bewegungsmelder anbinden}{5}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Multiuserfunktionalit\IeC {\"a}t integrieren}{5}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Kamera f\IeC {\"u}r Usererkennung integrieren}{5}{subsection.3.8}

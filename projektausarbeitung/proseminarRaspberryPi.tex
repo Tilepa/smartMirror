@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{hyperref}
+\author{Timon Sachweh und Michael Ratke}
+\title{Proseminar Raspberry Pi: smart Mirror}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Projektbeschreibung}
+Der magische Spiegel setzt sich aus einer mit Spiegelfolie beschichteten Glasscheibe, einem 17 Zoll Display und einem Raspberry Pi zusammen. Dabei wird das Display über den Raspberry Pi mit einem LCD Controller angesteuert.
+Folgende Funktionen werden implementiert:
+\begin{enumerate}
+	\item Wetter (standortbezogen)
+	\item Anzeige von lokalen Sensordaten (Luftfeuchtigkeit, Helligkeit, Temperatur)
+	\item Kalendereinträge/Erinnerungen
+	\item Geburtstagsliste
+	\item Mails von einem hinterlegten Account
+\end{enumerate}
+Diese Funktionen werden über den Raspberry Pi organisiert/bereit gestellt werden. Dafür der Pi eine mit Python entwickelte GUI erzeugen und darüber die Daten bereitstellen. Das heißt, die Rohdaten, die zum Beispiel aus einem hinterlegten Google-Account kommen, werden in aufbereiteter Form in klar separierte Bereiche auf dem, im Spiegel integrierten Monitor visualisiert. Wichtig zu beachten ist dabei, dass nicht zu viele Farben verwendet werden, da diese möglichst kontrastreich und stark vom Hintergrund abgehoben sein müssen, damit sie überhaubt sichtbar sind.
+
+Um den Funktionsumfang zu erweitern wird eine Sprachsteuerung integriert, die auf spezifische Befehle reagiert (werden noch ausformuliert und eventuell in der GUI angezeigt). Außerdem soll das System Multiuser fähig sein. Je nach Zeitaufwand kann die Anmeldung eines Users auch durch Gesichtserkennung erfolgen.
+Falls dann noch Zeit ist, kann noch eine Weboberfläche erstellt werden, über den man den Raspberry Pi innerhalb des lokalen Netzwerkes konfigurieren kann.
+
+\section{Materialliste}
+benötigte Materialien:
+\begin{itemize}
+	\item Raspberry Pi 3 Modell B (37 Euro, über Sammelbestellung)
+	\item Micro SD Karte mit Betriebssystem (9,80 Euro, über Sammelbestellung)
+	\item Netzteil 2,5A 5V DC (11,50 Euro, über Sammelbestellung)
+	\item 17 Zoll LCD Monitor ()
+	\item LCD-Controller Karte ()
+	\item Glasscheibe 0,6m x 0,5m ()
+	\item Spiegelfolie 1m x 1,52m (11 Euro) \href{https://www.amazon.de/Spiegel-Fenster-Silber7-Selbstklebend-1mx152cm/dp/B01A3HXF38/ref=sr_1_4?ie=UTF8\& qid=1494346770\& sr=8-4\& keywords=spionfolie}{Link}
+	\item Rahmen des Spiegels (Eigenbau)
+\end{itemize}
+
+ergänzende Materialien:
+\begin{itemize}
+	\item Temperatursensor (2,20 Euro, über Sammelbestellung)
+	\item Infrarot Bewegungssensor (3,99 Euro, über Sammelbestellung)
+	\item Kamera (29,99 Euro) \href{https://www.rasppishop.de/NoIR-Kameramodul-Raspberry-Pi-Kamera-V2}{Link}
+\end{itemize}
+
+\section{Projektablauf}
+Im folgenden wird der Ablauf des Projektes beschrieben und vor allem in kleinere Teilprojekte gegliedert, die einzeln jeweils abgearbeitet werden und in sich schon laufen werden. Außerdem werden am Ende Erweiterungen des Projektes angefügt, die abhängig von der Zeit noch integriert werden können und so den Projektumfang ergänzen.
+
+\subsection{Zusammenbau des Spiegels}
+Um den Spiegel aufzubauen, muss als erstes eine Glasscheibe (Plexiglas) in die entsprechende Größe zurecht geschnitten werden. Dabei muss beachtet werden, dass je nachdem, wie der Rahmen um das Spiegelglas montiert wird, ein Teil der Glasplatte zusätzlich verdeckt wird. Aus diesem Grund sollte an jeder Seite mit einem zusätzlichen Abstand von 1cm gerechnet werden.
+\par
+Nachdem die Glasscheibe zurecht geschnitten ist, wird sie mit einer Spiegelfolie beklebt, sodass die die Glasscheibe die Eigenschaften eines Spiegels aufweist. Danach kann der Rahmen des Spiegels konzipiert werden. Dafür muss er exakt die Glasscheibe einfassen können und eine Tiefe aufweisen, die sich aus der Glasscheibe, dem Display, sowie dem Raspberry Pi zusammensetzt. Dadurch wird der Spiegel deutlich dicker werden, als ein Handelsüblicher, aber die Alternative ist, eine externe Box zu bauen, in der der Raspberry Pi integriert ist und über lange Kabel mit dem Spiegel verbunden ist. Diese Lösung ist allerdings nicht so optisch ansprechend, weshalb wir uns für die erste Lösung entschieden haben.
+\par
+Anschließend wird das Display in den Spiegel integriert. Dafür nehmen wir einen Monitor und entfernen von diesem den Rahmen, sowie alles, was nicht mehr benötigt wird. Dieser Schritt ist nicht zwangsläufig notwendig, allerdings kann es von Vorteil sein, da der gesamte Spiegel dann nicht eine so hohe Dicke erreicht. Nachdem nur noch die Displayschicht des Monitors über geblieben ist, muss dieses mit der LCD-Controller Karte verbunden werden. Das ist nötig, da man durch das Entfernen des Gehäuses auch die standardmäßig integrierte Controller Karte enfernt hat. Anschließend muss zusätzlich ein Netzteil an den Controller angeschlossen werden, da dieser nicht durch den Raspberry Pi mit Strom versorgt wird. 
+
+\subsection{Raspberry Pi anschließen}
+Nachdem der Spiegel fertig zusammengebaut ist, kann angefangen werden, den Raspberry Pi zu konfigurieren. Zuerst muss dafür das Raspbian Betriebsystem auf die SD-Karte gespielt werden. Im Anschluss daran muss der Raspberry mit einem Monitor verbunden werden und mit eingesteckter SD-Karte gestartet werden. Während des Startes wird das Setup zum Konfigurieren erscheinen. Dort sollte folgende Konfiguration angehakt werden:
+\begin{itemize}
+  \item SSH-Client
+\end{itemize}
+Danach sollte das Raspian Betriebsystem, welches auf Linux-Basis läuft, fertig installiert sein. Um aber alle Libraries auf dem aktuellen Stand zu halten ist es ratsam einmal die beiden folgenden Bash Kommandos auszuführen.
+\newline
+\begin{center}
+  sudo apt-get update\\
+  sudo apt-get upgrade
+\end{center}
+
+\subsection{Benötigte Libraries installieren}
+Um die Anwendung für den Raspberry Pi zu schreiben benötigt man verschiedene Libraries, die zuerst eingebunden werden müssen. 
+\par
+Zum Erstellen der GUI muss zuerst die Library von Tkinter eingebunden werden, da mit dieser die Oberfläche designed werden kann. Alternativ kann auch ein anderes GUI Framework verwendet werden, aber in diesem Projekt wird die Tkinter Library verwendet. Um die Library zu importieren muss folgendes Kommando in die Kommandozeile eingegeben werden:
+\begin{center}
+  sudo apt-get install python python-tk idle python-pmw python-imaging
+\end{center}
+\par
+Da in der GUI auch ein paar Informationen aus einem Google Kalender importiert werden sollen, muss man auch eine Schnittstelle zu diesem Webservice herstellen. Dafür wird eine weitere Library benötigt, die den Zugriff auf den Google Kalender einfacher gestaltet. Diese Library wird durch folgendes Kommando installiert:
+\begin{center}
+  pip install --upgrade google-api-python-client
+\end{center}
+\par
+Außerdem wird für eines der nachfolgenden Schritte eine Library benötigt, die die Kamera des Raspberries über Python erreichen kann. Dafür muss diese mit folgendem Kommando heruntergeladen werden:
+\begin{center}
+  sudo apt-get install python-picamera python3-picamera
+\end{center}
+Es können noch weitere Libraries folgen, die zur weiteren Implementierung verwendet werden, allerdings sind das die drei primär benötigten. 
+
+\subsection{Erste grafische Oberfläche entwickeln}
+
+\subsection{GUI verschönern und auf Userdaten zugreifen}
+
+\subsection{Bewegungsmelder anbinden}
+
+\subsection{Multiuserfunktionalität integrieren}
+
+\subsection{Kamera für Usererkennung integrieren}
+
+\end{document}
