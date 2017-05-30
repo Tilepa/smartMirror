@@ -1,4 +1,7 @@
 from __future__ import print_function
+
+import datetime
+
 import httplib2
 import os
 
@@ -6,8 +9,6 @@ from apiclient import discovery
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
-
-import datetime
 
 from model.calendarEntry import CalendarEntry
 from model.configurations import *
@@ -19,7 +20,7 @@ except ImportError:
     flags = None
 
 SCOPES = "https://www.googleapis.com/auth/calendar.readonly"
-CLIENT_SECRET_FILE = "client_secret.json"
+CLIENT_SECRET_FILE = "model/client_secret.json"
 
 
 def get_credentials():
@@ -49,7 +50,6 @@ def get_next_20_calendar_entries():
     service = discovery.build("calendar", "v3", http=http)
 
     now = datetime.datetime.utcnow().isoformat() + "Z"
-    print("Getting the upcomming 10 events")
 
     eventsResult = service.events().list(
         calendarId="primary",
@@ -63,11 +63,23 @@ def get_next_20_calendar_entries():
     for event in events:
         id = event["id"]
         description = event["summary"]
-        startTime = event["start"].get("dateTime", event["start"].get("date"))
-        endTime = event["end"].get("dateTime", event["end"].get("date"))
+        startTime = get_date(event["start"].get("dateTime", event["start"].get("date")))
+        endTime = get_date(event["end"].get("dateTime", event["end"].get("date")))
         status = event["status"]
 
         entry = CalendarEntry(id=id, startDate=startTime, endDate=endTime, title=description, status=status)
         calendarEntries.append(entry)
 
     return calendarEntries
+
+
+def get_date(date_string):
+    additional_time = ""
+    try:
+        date, additional_time = date_string.split("+")
+        date_time = datetime.datetime.strptime(date, "%Y-%m-%dT%X")
+    except ValueError:
+        date = date_string
+        date_time = datetime.datetime.strptime(date, "%Y-%m-%d")
+
+    return date_time
