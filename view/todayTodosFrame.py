@@ -12,7 +12,7 @@ class TodayTodosFrame(Frame):
 
     def __init__(self, parent, width, height):
         Frame.__init__(self, parent)
-        self.pack()
+        self.grid()
         self.configure(bg=background_color, width=width, height=height)
 
         self.calendarEntries = get_next_20_calendar_entries()
