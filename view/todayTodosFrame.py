@@ -18,8 +18,8 @@ class TodayTodosFrame(Frame):
         self.calendarEntries = get_next_20_calendar_entries()
 
         title = Label(self, text="Nächste Kalenderereignisse")
-        title.configure(font=("Helvetica", 18, "bold"), bg=background_color, fg=text_color, pady=30, padx=50)
-        title.grid(sticky="nsew")
+        title.configure(font=(font_type, 18, "underline"), bg=background_color, fg=text_color)#, pady=30, padx=50)
+        title.grid(sticky=W)
 
         row = 1
         for calendarEntry in self.calendarEntries:
@@ -33,7 +33,7 @@ class TodayTodosFrame(Frame):
             entry_frame.configure(padx=10, pady=10)
 
             title_label = Label(entry_frame, text=calendar_title)
-            title_label.configure(font=("Helvetica", 16), bg=background_color, fg=text_color)
+            title_label.configure(font=(font_type, 16), bg=background_color, fg=text_color)
             title_label.grid(row=0, column=0, columnspan=2, sticky="nsw")
 
             start_label = Label(entry_frame, text=start_string)

@@ -1,7 +1,11 @@
+import time
+import _thread
 from tkinter import *
-from model.configurations import *
 from controller.weatherInformation import *
 from controller.googleAccess import *
+from controller.positions import *
+
+
 
 
 class GeneralInformationFrame(Frame):
@@ -9,36 +13,54 @@ class GeneralInformationFrame(Frame):
 
     def __init__(self, parent, width, height):
         Frame.__init__(self, parent)
-
+        self.temperature_frame = Frame(parent, bg=background_color)
         self.configure(bg=background_color, width=width, height=height)
 
-        self.create_temperature_widget(parent)
+        self.var_current_time = StringVar()
+        self.var_seconds = StringVar()
+        self.var_current_date = StringVar()
+        self.var_current_time.set(time.strftime("%H:%M"))
+        self.var_seconds.set(time.strftime("%S"))
+        self.var_current_date.set(time.strftime("%A, %d. %B %Y"))
 
-        self.grid()
+        current_time_label = Label(self.temperature_frame, textvariable=self.var_current_time)
+        current_time_label.configure(bg=background_color, fg=text_color, font=(font_type, 60))
 
-    def create_temperature_widget(self, general_frame):
-        self.temperature_frame = Frame(general_frame, bg=background_color)
+        seconds_label = Label(self.temperature_frame, textvariable=self.var_seconds)
+        seconds_label.configure(bg=background_color, fg="gray", font=(font_type, 25))
 
-        temperature_text = "Current temperature: " + str(get_current_temperature())
-        temperature_label = Label(self.temperature_frame, text=temperature_text)
-        temperature_label.configure(bg=background_color, fg=text_color)
+        current_date_label = Label(self.temperature_frame, textvariable=self.var_current_date)
+        current_date_label.configure(bg=background_color, fg=text_color, font=(font_type, 25))
 
-        min_temperature_text = "Minimal temperature: " + str(get_min_temperature())
-        min_temperature_label = Label(self.temperature_frame, text=min_temperature_text)
-        min_temperature_label.configure(bg=background_color, fg=text_color)
+        pos = get_city_country()
+        temperature_label = Label(self.temperature_frame, text=(pos[0] + " " + str(round(get_current_temperature(), 1)) + "°C"))
+        temperature_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
 
-        max_temperature_text = "Maximum temperature: " + str(get_max_temperature())
-        max_temperature_label = Label(self.temperature_frame, text=max_temperature_text)
-        max_temperature_label.configure(bg=background_color, fg=text_color)
+        roomtemperature_label = Label(self.temperature_frame, text=("Raumtemperatur: ??°C"))
+        roomtemperature_label.configure(bg=background_color, fg=text_color, font=(font_type, 10))
+
+        min_temperature_label = Label(self.temperature_frame, text=("Min: " + str(get_min_temperature()) + "°C"))
+        min_temperature_label.configure(bg=background_color, fg=text_color, font=(font_type, 10))
+
+        max_temperature_label = Label(self.temperature_frame, text=("Max: " + str(get_max_temperature()) + "°C"))
+        max_temperature_label.configure(bg=background_color, fg=text_color, font=(font_type, 10))
 
         weather_image = get_image_for_weather()
-        weather_image_view = Label(self.temperature_frame, image=weather_image)
+        weather_image_view = Label(self.temperature_frame, image=weather_image, bg=background_color, width=80, height=80)
         weather_image_view.image = weather_image
-        weather_image_view.configure(bg=background_color, width=80, height=80)
 
-        temperature_label.grid(row=0, column=0, rowspan=1, columnspan=1, sticky="nsew")
-        min_temperature_label.grid(row=1, column=0, rowspan=1, columnspan=1, sticky="nsew")
-        max_temperature_label.grid(row=2, column=0, rowspan=1, columnspan=1, sticky="nsew")
-        weather_image_view.grid(row=3, column=0, rowspan=1, columnspan=1)
+        current_time_label.grid(row=0, column=0, columnspan=2, sticky=W)
+        seconds_label.grid(row=0, column=0, columnspan=2, sticky=E+N, padx=100)
+        current_date_label.grid(row=1, column=0, rowspan=1, columnspan=1, sticky=W)
+        temperature_label.grid(row=2, column=0, rowspan=1, columnspan=1, sticky=W)
+        roomtemperature_label.grid(row=3, column=0, sticky=W)
+        min_temperature_label.grid(row=4, column=0, rowspan=1, columnspan=1, sticky=W)
+        max_temperature_label.grid(row=5, column=0, rowspan=1, columnspan=1, sticky=W)
+        weather_image_view.grid(row=6, column=0, rowspan=1, columnspan=1)
 
         self.temperature_frame.grid()
+        self.grid()
+
+    def update_time(self):
+        self.var_current_time.set(time.strftime("%H:%M"))
+        self.var_current_date.set(time.strftime("%A, %d. %B %Y"))
