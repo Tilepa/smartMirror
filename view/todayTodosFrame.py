@@ -12,13 +12,12 @@ class TodayTodosFrame(Frame):
 
     def __init__(self, parent, width, height):
         Frame.__init__(self, parent)
-        self.grid()
         self.configure(bg=background_color, width=width, height=height)
 
         self.calendarEntries = get_next_20_calendar_entries()
 
         title = Label(self, text="Nächste Kalenderereignisse")
-        title.configure(font=(font_type, 18, "underline"), bg=background_color, fg=text_color)#, pady=30, padx=50)
+        title.configure(font=(font_type, 25), bg=background_color, fg=text_color)#, pady=30, padx=50)
         title.grid(sticky=W)
 
         row = 1

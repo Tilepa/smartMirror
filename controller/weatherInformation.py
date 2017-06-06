@@ -28,12 +28,14 @@ def get_min_temperature():
 def get_image_for_weather():
     weather = get_weather()
     weather_icon_name = weather.get_weather_icon_name()
-    print(weather.get_status())
     url = "http://openweathermap.org/img/w/" + weather_icon_name + ".png"
     request = requests.get(url).content
     encoded_string = io.BytesIO(request)
     image = Image.open(encoded_string).convert("RGB")
     photo = ImageTk.PhotoImage(image)
     return photo
+
+def get_icon_name():
+    return get_weather().get_weather_icon_name()
 
 
