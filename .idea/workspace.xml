@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d17fc1b2-634e-4479-b182-c8041678f1fe" name="Default" comment="NewsFrame + GeneralInformation and some other thing">
+    <list default="true" id="d17fc1b2-634e-4479-b182-c8041678f1fe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/weatherInformation.py" afterPath="$PROJECT_DIR$/controller/weatherInformation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstGui.py" afterPath="$PROJECT_DIR$/firstGui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/calenderFrame.py" afterPath="$PROJECT_DIR$/view/calenderFrame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/generalInformationFrame.py" afterPath="$PROJECT_DIR$/view/generalInformationFrame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/todayTodosFrame.py" afterPath="$PROJECT_DIR$/view/todayTodosFrame.py" />
     </list>
     <ignored path="firstGui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -565,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496699322456</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update">
+      <created>1496773253574</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1496773253574</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -610,7 +612,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change pack() to grid() in some frames" />
     <MESSAGE value="NewsFrame + GeneralInformation and some other thing" />
-    <option name="LAST_COMMIT_MESSAGE" value="NewsFrame + GeneralInformation and some other thing" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
