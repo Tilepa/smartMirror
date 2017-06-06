@@ -1,14 +1,16 @@
 import time
-import _thread
-import threading
+import os
+from multiprocessing import Process
 from tkinter import *
 from view.generalInformationFrame import GeneralInformationFrame
 from view.calenderFrame import CalenderFrame
 from view.todayTodosFrame import TodayTodosFrame
 from view.newsBlockFrame import NewsBlockFrame
 
+terminate_time = False
 
-class App(Tk):
+
+class Application(Tk):
     generalInformation = GeneralInformationFrame
     newsBlockFrame = NewsBlockFrame
     todayTodosFrame = TodayTodosFrame
@@ -34,22 +36,33 @@ class App(Tk):
         self.kalenderFrame = CalenderFrame(master, width=widthKF, height=heightGeneral)
 
         self.generalInformation.grid(row=0, column=0, rowspan=1, columnspan=1, sticky=N+W)
-        self.newsBlockFrame.grid(row=0, column=1, rowspan=1, columnspan=2, sticky=N+E+W)
-        self.todayTodosFrame.grid(row=0, column=3, rowspan=1, columnspan=1, sticky=N+E)
-        self.kalenderFrame.grid(row=1, column=2, rowspan=1, columnspan=2, sticky=N+S+E+W)
+        self.todayTodosFrame.grid(row=0, column=2, rowspan=1, columnspan=1, sticky=N+E)
+        self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky=S+W)
+        self.kalenderFrame.grid(row=1, column=2, rowspan=1, columnspan=1, sticky=S+E)
 
-        #_thread.start_new_thread(self.update_time(), self)
-        #_thread.start_new(self.update_time())
-        #thread_time = threading.Thread(target=self.update_time())
-        #thread_time.start()
+        # pid = os.fork()
+        # if pid == 0:
+        #     self.update_time()
+        # elif pid > 0:
+        #     pass
+        # else:
+        #     print("Kindprozess konnte nicht erzeugt werden!")
 
-    def update_time(self):
-        while True:
-            self.generalInformation.update_time()
 
-root = Tk()
-root.title("Smart Mirror")
-root.overrideredirect(0)
-root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-App(root)
-root.mainloop()
+def update_time():
+    # while True:
+        if terminate_time == False:
+            application.generalInformation.update_time(time.strftime("%H:%M"), time.strftime("%S"), time.strftime("%A, %d. %B %Y"))
+
+
+if __name__ == "__main__":
+    root = Tk()
+    root.title("Smart Mirror")
+    root.overrideredirect(0)
+    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+    application = Application(root)
+    update_time()
+    # p_time = Process(target=update_time())
+    # p_time.start()
+    # p_time.join()
+    root.mainloop()

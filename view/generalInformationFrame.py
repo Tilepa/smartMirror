@@ -6,8 +6,6 @@ from controller.googleAccess import *
 from controller.positions import *
 
 
-
-
 class GeneralInformationFrame(Frame):
     temperature_frame = Frame
 
@@ -19,9 +17,9 @@ class GeneralInformationFrame(Frame):
         self.var_current_time = StringVar()
         self.var_seconds = StringVar()
         self.var_current_date = StringVar()
-        self.var_current_time.set(time.strftime("%H:%M"))
-        self.var_seconds.set(time.strftime("%S"))
-        self.var_current_date.set(time.strftime("%A, %d. %B %Y"))
+        #self.var_current_time.set(time.strftime("%H:%M"))
+        #self.var_seconds.set(time.strftime("%S"))
+        #self.var_current_date.set(time.strftime("%A, %d. %B %Y"))
 
         current_time_label = Label(self.temperature_frame, textvariable=self.var_current_time)
         current_time_label.configure(bg=background_color, fg=text_color, font=(font_type, 60))
@@ -61,6 +59,7 @@ class GeneralInformationFrame(Frame):
         self.temperature_frame.grid()
         self.grid()
 
-    def update_time(self):
-        self.var_current_time.set(time.strftime("%H:%M"))
-        self.var_current_date.set(time.strftime("%A, %d. %B %Y"))
+    def update_time(self, time, seconds, date):
+        self.var_current_time.set(time)
+        self.var_seconds.set(seconds)
+        self.var_current_date.set(date)

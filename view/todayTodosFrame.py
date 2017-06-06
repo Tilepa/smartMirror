@@ -55,6 +55,6 @@ class TodayTodosFrame(Frame):
             seperator = Seperator(entry_frame)
             seperator.grid(row=3, column=0, columnspan=2, sticky="ew")
 
-            entry_frame.grid(row=row, column=0, sticky="nsew")
+            entry_frame.grid(row=row, column=0, sticky="nsw")
             row += 1
 
