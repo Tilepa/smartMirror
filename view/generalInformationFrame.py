@@ -44,7 +44,7 @@ class GeneralInformationFrame(Frame):
         temp_frame = Frame(self.temperature_frame, bg=background_color)
 
         #path = os.getcwd() + "\weathericons\\" + get_icon_name() + ".jpg"
-        path = os.getcwd() + "\weathericons\\01d.jpg"
+        path = os.getcwd() + "/weathericons/01d.jpg"
         weather_image = ImageTk.PhotoImage(Image.open(path))
         self.weather_image_view = Label(temp_frame, image=weather_image, bg="white", width=60, height=60, border=0)
         self.weather_image_view.image = weather_image
