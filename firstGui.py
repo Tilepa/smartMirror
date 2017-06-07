@@ -16,8 +16,8 @@ class Application(Tk):
     kalenderFrame = CalenderFrame
 
     padding = 10
-    countColumns = 4
-    countRows = 2
+    countColumns = 2
+    countRows = 3
 
     def __init__(self, master):
         Tk.__init__(self)
@@ -25,19 +25,19 @@ class Application(Tk):
 
         widthGI = self.winfo_screenwidth() / self.countColumns
         heightGeneral = self.winfo_screenheight() / self.countRows
-        widthNBF = self.winfo_screenwidth() / self.countColumns * 2
+        widthNBF = self.winfo_screenwidth()
         widthTDF = widthGI
-        widthKF = self.winfo_screenwidth() / self.countColumns * 2
+        widthKF = self.winfo_screenwidth()
 
         self.generalInformation = GeneralInformationFrame(master, width=widthGI, height=heightGeneral)
         self.newsBlockFrame = NewsBlockFrame(master, width=widthNBF, height=heightGeneral)
         self.todayTodosFrame = TodayTodosFrame(master, width=widthTDF, height=heightGeneral)
         self.kalenderFrame = CalenderFrame(master, width=widthKF, height=heightGeneral)
 
-        self.generalInformation.grid(row=0, column=0, rowspan=1, columnspan=1, sticky=N+W)
-        self.todayTodosFrame.grid(row=0, column=2, rowspan=1, columnspan=1, sticky=N+E)
-        self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky=S+W)
-        self.kalenderFrame.grid(row=1, column=2, rowspan=1, columnspan=1, sticky=S+E)
+        self.generalInformation.grid(row=0, column=0, rowspan=1, columnspan=1, sticky="nsew")
+        self.todayTodosFrame.grid(row=0, column=1, rowspan=1, columnspan=1, sticky="nsew")
+        self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky="nsew")
+        self.kalenderFrame.grid(row=2, column=0, rowspan=1, columnspan=2, sticky="nsew")
 
 def update_time():
     # while True:
