@@ -73,13 +73,21 @@ class GeneralInformationFrame(Frame):
         # Das Sammelframe wird in parent eingegliedert
         self.temperature_frame.grid(row=0, column=1)
 
+        self.update_time()
 
+    def update_time(self):
+        new_date = time.strftime("%d/%m/%Y")
+        new_time = time.strftime('%H:%M')
+        new_seconds = time.strftime("%S")
 
-    def update_time(self, time, seconds, date):
-        self.var_current_time.set(time)
-        self.var_seconds.set(seconds)
-        self.var_current_date.set(date)
-        self.after(1000, self.update_time)
+        if new_time != self.current_time_label.__getitem__("text"):
+            self.current_time_label.configure(text=new_time)
+        if new_date != self.current_date_label.__getitem__("text"):
+            self.current_date_label.configure(text=new_date)
+        if new_seconds != self.seconds_label.__getitem__("text"):
+            self.seconds_label.configure(text=new_seconds)
+
+        self.after(200, self.update_time)
 
     def update_weather_icon(self):
         new_path = os.getcwd() + "/weathericons/" + get_icon_name() + ".jpg"
