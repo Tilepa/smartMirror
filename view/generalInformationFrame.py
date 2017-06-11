@@ -43,12 +43,12 @@ class GeneralInformationFrame(Frame):
         # TEMP_AND_ICON: Label für die Anzeige der aktuellen Temperatur, abhaengig vom Standort und Einbindung des Wetter Icons.
         temp_frame = Frame(self.temperature_frame, bg=background_color)
 
-        #path = os.getcwd() + "\weathericons\\" + get_icon_name() + ".jpg"
-        path = os.getcwd() + "/weathericons/01d.jpg"
+        path = os.getcwd() + "/weathericons/" + get_icon_name() + ".jpg"
+        #path = os.getcwd() + "/weathericons/01d.jpg"
         weather_image = ImageTk.PhotoImage(Image.open(path))
-        self.weather_image_view = Label(temp_frame, image=weather_image, bg="white", width=60, height=60, border=0)
-        self.weather_image_view.image = weather_image
-        self.weather_image_view.pack(side=LEFT)
+        #self.weather_image_view = Label(temp_frame, image=weather_image, bg="white", width=60, height=60, border=0)
+        #self.weather_image_view.image = weather_image
+        #self.weather_image_view.pack(side=LEFT)
 
         pos = get_city_country()
         temperature_label = Label(temp_frame, text=(pos[0] + ", " + str(round(get_current_temperature(), 1)) + "°C"))
@@ -81,7 +81,7 @@ class GeneralInformationFrame(Frame):
         self.var_current_date.set(date)
 
     def update_weather_icon(self):
-        new_path = os.getcwd() + "\weathericons\\" + get_icon_name() + ".jpg"
+        new_path = os.getcwd() + "/weathericons/" + get_icon_name() + ".jpg"
         new_weather_image = ImageTk.PhotoImage(Image.open(new_path))
         self.weather_image_view.config(image=new_weather_image)
         self.weather_image_view.image = new_weather_image
