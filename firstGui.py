@@ -39,15 +39,6 @@ class Application(Tk):
         self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky="nsew")
         self.kalenderFrame.grid(row=2, column=0, rowspan=1, columnspan=2, sticky="nsew")
 
-def update_time():
-    # while True:
-        if terminate_time == False:
-            application.generalInformation.update_time(time.strftime("%H:%M"), time.strftime("%S"), time.strftime("%A, %d. %B %Y"))
-
-def update_weather():
-    application.generalInformation.update_weather_icon()
-
-
 
 if __name__ == "__main__":
     root = Tk()
@@ -55,9 +46,4 @@ if __name__ == "__main__":
     root.overrideredirect(0)
     root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
     application = Application(root)
-    update_time()
-    # update_weather()
-    # p_time = Process(target=update_time())
-    # p_time.start()
-    # p_time.join()
     root.mainloop()
