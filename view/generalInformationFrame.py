@@ -1,11 +1,12 @@
 import time
-import _thread
 from tkinter import *
 from controller.weatherInformation import *
 from controller.googleAccess import *
 from controller.positions import *
 from PIL import Image
 from PIL import ImageTk
+
+from view.components.weatherForecastComponent import WeatherForecastComponent
 
 
 class GeneralInformationFrame(Frame):
@@ -72,6 +73,9 @@ class GeneralInformationFrame(Frame):
 
         # Das Sammelframe wird in parent eingegliedert
         self.temperature_frame.grid(row=0, column=1)
+
+        self.forecast_component = WeatherForecastComponent(parent=self.temperature_frame, day=1)
+        self.forecast_component.grid(row=3, column=0)
 
         self.update_time()
 
