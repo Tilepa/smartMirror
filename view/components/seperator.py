@@ -3,8 +3,10 @@ from tkinter import *
 from model.configurations import *
 
 
-def Seperator(master):
-    return Frame(master, relief=SUNKEN, height=seperator_height_invisible, bg=background_color)
+def Seperator(master, height=0):
+    if height == 0:
+        height = seperator_height_invisible
+    return Frame(master, relief=SUNKEN, height=height, bg=background_color)
 
 
 def SeperatorAsLine(master):
