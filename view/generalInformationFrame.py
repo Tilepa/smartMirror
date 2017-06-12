@@ -71,11 +71,24 @@ class GeneralInformationFrame(Frame):
         max_temperature_label.configure(bg=background_color, fg=text_color, font=(font_type, 10))
         max_temperature_label.grid(row=2, column=0)
 
+        forecast_frame = Frame(self.temperature_frame, bg=background_color)
+
+        self.forecast_component_one = WeatherForecastComponent(parent=forecast_frame, day=1)
+        self.forecast_component_one.configure(padx=10)
+        self.forecast_component_one.grid(row=0, column=0)
+
+        self.forecast_component_two = WeatherForecastComponent(parent=forecast_frame, day=2)
+        self.forecast_component_two.configure(padx=10)
+        self.forecast_component_two.grid(row=0, column=1)
+
+        self.forecast_component_three = WeatherForecastComponent(parent=forecast_frame, day=3)
+        self.forecast_component_three.configure(padx=10)
+        self.forecast_component_three.grid(row=0, column=2)
+
+        forecast_frame.grid(row=3, column=0)
+
         # Das Sammelframe wird in parent eingegliedert
         self.temperature_frame.grid(row=0, column=1)
-
-        self.forecast_component = WeatherForecastComponent(parent=self.temperature_frame, day=1)
-        self.forecast_component.grid(row=3, column=0)
 
         self.update_time()
 
