@@ -20,6 +20,10 @@ class TodayTodosFrame(Frame):
         title.configure(font=(font_type, 25), bg=background_color, fg=text_color)#, pady=30, padx=50)
         title.grid(sticky=W)
 
+        self.update_calendar_entries()
+
+    def update_calendar_entries(self):
+
         row = 1
         for calendarEntry in self.calendarEntries:
             calendar_title = "Titel: " + calendarEntry.title
@@ -57,3 +61,4 @@ class TodayTodosFrame(Frame):
             entry_frame.grid(row=row, column=0, sticky="nsw")
             row += 1
 
+        self.after(600000, self.update_calendar_entries)

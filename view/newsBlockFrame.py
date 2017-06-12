@@ -51,3 +51,5 @@ class NewsBlockFrame(Frame):
             row += 1
 
         self.entry_views_frame.grid(row=1, column=0, sticky="nsew")
+
+        self.after(600000, self.show_news)

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d17fc1b2-634e-4479-b182-c8041678f1fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/generalInformationFrame.py" afterPath="$PROJECT_DIR$/view/generalInformationFrame.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/newsBlockFrame.py" afterPath="$PROJECT_DIR$/view/newsBlockFrame.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/todayTodosFrame.py" afterPath="$PROJECT_DIR$/view/todayTodosFrame.py" />
     </list>
     <ignored path="firstGui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -15,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/smartMirror$firstGui.coverage" NAME="firstGui Coverage Results" MODIFIED="1497218836850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/smartMirror$firstGui.coverage" NAME="firstGui Coverage Results" MODIFIED="1497269998476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/firstGui$firstGui.coverage" NAME="firstGui Coverage Results" MODIFIED="1495394141390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -26,84 +27,7 @@
     <favorites_list name="firstGui" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="todayTodosFrame.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/todayTodosFrame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newsfeedAccess.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/newsfeedAccess.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newsfeedEntry.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/newsfeedEntry.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="configurations.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/configurations.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generalInformationFrame.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/generalInformationFrame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="89" column="20" lean-forward="false" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="firstGui.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/firstGui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newsBlockFrame.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/newsBlockFrame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="85" lean-forward="false" selection-start-line="41" selection-start-column="85" selection-end-line="41" selection-end-column="85" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -134,15 +58,15 @@
         <option value="$PROJECT_DIR$/controller/positions.py" />
         <option value="$PROJECT_DIR$/controller/weatherInformation.py" />
         <option value="$PROJECT_DIR$/view/calenderFrame.py" />
-        <option value="$PROJECT_DIR$/view/todayTodosFrame.py" />
         <option value="$PROJECT_DIR$/controller/googleAccess.py" />
         <option value="$PROJECT_DIR$/model/calendarEntry.py" />
         <option value="$PROJECT_DIR$/model/newsfeedEntry.py" />
         <option value="$PROJECT_DIR$/controller/newsfeedAccess.py" />
         <option value="$PROJECT_DIR$/model/configurations.py" />
-        <option value="$PROJECT_DIR$/view/newsBlockFrame.py" />
         <option value="$PROJECT_DIR$/firstGui.py" />
         <option value="$PROJECT_DIR$/view/generalInformationFrame.py" />
+        <option value="$PROJECT_DIR$/view/newsBlockFrame.py" />
+        <option value="$PROJECT_DIR$/view/todayTodosFrame.py" />
       </list>
     </option>
   </component>
@@ -192,7 +116,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,7 +173,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -557,19 +481,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14198287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14320685" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24385633" sideWeight="0.5255848" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24252136" sideWeight="0.4744152" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24108528" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24252136" sideWeight="0.4744152" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957264" sideWeight="0.49265605" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -855,14 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/newsfeedEntry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/calenderFrame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -870,28 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/newsfeedAccess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/configurations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/todayTodosFrame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -904,6 +801,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/newsfeedEntry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/newsfeedAccess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/generalInformationFrame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="89" column="20" lean-forward="false" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/firstGui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -912,22 +837,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/newsBlockFrame.py">
+    <entry file="file://$PROJECT_DIR$/view/todayTodosFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="85" lean-forward="false" selection-start-line="41" selection-start-column="85" selection-end-line="41" selection-end-column="85" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="698">
+          <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/generalInformationFrame.py">
+    <entry file="file://$PROJECT_DIR$/view/newsBlockFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="89" column="20" lean-forward="false" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+        <state relative-caret-position="540">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
