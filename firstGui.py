@@ -41,7 +41,7 @@ class Application(Tk):
 
 
 if __name__ == "__main__":
-    root = Tk()
+    root = Toplevel()
     root.title("Smart Mirror")
     root.overrideredirect(0)
     root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
