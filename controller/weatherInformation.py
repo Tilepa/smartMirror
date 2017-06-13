@@ -1,4 +1,5 @@
 import os
+from sys import platform
 
 import pyowm
 import io
@@ -65,7 +66,16 @@ def get_weather_image(image_name=""):
     else:
         icon_name = image_name
 
-    path = os.getcwd() + "/weathericons/" + icon_name + ".jpg"
+    if platform == "linux" or platform == "linux2":
+        # linux
+        path = os.getcwd() + "/weathericons/" + icon_name + ".jpg"
+    elif platform == "darwin":
+        # MAC OS X
+        path = os.getcwd() + "/weathericons/" + icon_name + ".jpg"
+    elif platform == "win32":
+        # Windows
+        path = os.getcwd() + "\\weathericons\\" + icon_name + ".jpg"
+
     image = Image.open(path)
     image = image.resize((60, 60), Image.ANTIALIAS)
     photo = ImageTk.PhotoImage(width=60, height=60, image=image, format="jpg")
