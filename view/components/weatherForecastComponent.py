@@ -23,9 +23,12 @@ class WeatherForecastComponent(Frame):
         seperator = SeperatorAsLine(self)
         seperator.grid(row=1, column=0, columnspan=2, sticky="ew")
 
-        image_label = Label(self, text="Image")
-        image_label.configure(bg=background_color, fg=text_color)
-        image_label.grid(row=2, column=0, columnspan=2, sticky="nsew")
+        self.forecast_image = get_weather_image(image_name=self.forecast.icon_name)
+
+        self.image_label = Label(self, image=self.forecast_image)
+        self.image_label.image = self.forecast_image
+        self.image_label.configure(bg=background_color, fg=text_color)
+        self.image_label.grid(row=2, column=0, columnspan=2, sticky="nsew")
 
         min_text_label = Label(self, text="min")
         min_text_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
@@ -53,5 +56,10 @@ class WeatherForecastComponent(Frame):
 
         self.min_label.configure(text=min_text)
         self.max_label.configure(text=max_text)
+
+        self.forecast_image = get_weather_image(image_name=self.forecast.icon_name)
+
+        self.image_label.configure(image=self.forecast_image)
+        self.image_label.image = self.forecast_image
 
         self.after(3600000, self.update_forecast)

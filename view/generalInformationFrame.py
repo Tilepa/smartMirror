@@ -12,7 +12,6 @@ from view.components.weatherForecastComponent import WeatherForecastComponent
 
 class GeneralInformationFrame(Frame):
     temperature_frame = Frame
-    weather_image = ImageTk
 
     def __init__(self, parent, width, height):
         Frame.__init__(self, parent)
@@ -47,9 +46,12 @@ class GeneralInformationFrame(Frame):
 
         weather_component = Frame(self.temperature_frame, bg=background_color)
 
-        actual_weather_image = Label(weather_component, text="image")
-        actual_weather_image.configure(bg=background_color, fg=text_color)
-        actual_weather_image.grid(row=0, column=0, rowspan=3)
+        self.image_actual_weather = get_weather_image()
+
+        self.actual_weather_image_view = Label(weather_component, width=60, height=60, image=self.image_actual_weather)
+        self.actual_weather_image_view.image = self.image_actual_weather
+        self.actual_weather_image_view.configure(bg=background_color, fg=text_color)
+        self.actual_weather_image_view.grid(row=0, column=0, rowspan=3)
 
         self.actual_weather_temperature = Label(weather_component)
         self.actual_weather_temperature.configure(bg=background_color, fg=text_color, font=(font_type, 25))
@@ -94,6 +96,7 @@ class GeneralInformationFrame(Frame):
 
         self.update_time()
         self.update_weather()
+        self.update_weather_image()
 
     def update_time(self):
         new_date = time.strftime("%d/%m/%Y")
@@ -121,5 +124,12 @@ class GeneralInformationFrame(Frame):
         if new_temp_max != self.actual_weather_max_temperature.__getitem__("text"):
             self.actual_weather_max_temperature.configure(text=new_temp_max)
 
-        self.after(3600000, self.update_weather)
+        self.after(360000, self.update_weather)
+
+    def update_weather_image(self):
+        self.image_actual_weather = get_weather_image()
+        self.actual_weather_image_view.configure(image=self.image_actual_weather)
+        self.actual_weather_image_view.image = self.image_actual_weather
+
+        self.after(360000, self.update_weather_image)
 

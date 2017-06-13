@@ -1,7 +1,8 @@
+import os
+
 import pyowm
 import io
-from PIL import Image
-from PIL import ImageTk
+from PIL import Image, ImageTk
 
 from controller.positions import *
 from model.weather import Weather
@@ -57,3 +58,16 @@ def get_forecast(day):
     return Weather(temperature["min"], temperature["max"], weather.get_weather_icon_name())
 
 
+def get_weather_image(image_name=""):
+
+    if image_name == "":
+        icon_name = get_icon_name()
+    else:
+        icon_name = image_name
+
+    path = os.getcwd() + "/weathericons/" + icon_name + ".jpg"
+    image = Image.open(path)
+    image = image.resize((60, 60), Image.ANTIALIAS)
+    photo = ImageTk.PhotoImage(width=60, height=60, image=image, format="jpg")
+
+    return photo
