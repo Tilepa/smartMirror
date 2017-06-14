@@ -8,7 +8,7 @@ from view.components.seperator import SeperatorAsLine
 class WeatherForecastComponent(Frame):
     def __init__(self, parent, day):
         Frame.__init__(self, parent)
-        self.configure(bg=background_color, highlightbackground="white", highlightthickness=2)
+        self.configure(bg=background_color)
         self.day = day
 
         self.forecast = get_forecast(self.day)
@@ -17,7 +17,7 @@ class WeatherForecastComponent(Frame):
         time_of_forecast = time_of_forecast + datetime.timedelta(days=self.day)
 
         weekday_label = Label(self, text=time_of_forecast.strftime("%a"))
-        weekday_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
+        weekday_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
         weekday_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
         seperator = SeperatorAsLine(self)

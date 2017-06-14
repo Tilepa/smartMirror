@@ -99,7 +99,7 @@ class GeneralInformationFrame(Frame):
         self.update_weather_image()
 
     def update_time(self):
-        new_date = time.strftime("%d/%m/%Y")
+        new_date = time.strftime("%A, %d %b %Y")
         new_time = time.strftime('%H:%M')
         new_seconds = time.strftime("%S")
 
