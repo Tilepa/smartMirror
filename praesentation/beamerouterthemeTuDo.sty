@@ -1,0 +1,41 @@
+\mode<presentation>
+
+\usepackage{textpos}
+
+% Frame title
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+	\usebeamerfont{frametitle}
+	\insertframetitle 
+	\hfill
+	%\begin{textblock*}[width=.25\paperwidth](\paperwidth,0pt)
+		\includegraphics[width=.25\paperwidth]{images/logo_tu}
+	%\end{textblock*}
+	\vspace{.1cm}
+	\begin{textblock*}{\paperwidth}(-27pt,0pt)
+		\includegraphics[width=\paperwidth, height=.15cm]{images/topFrame}
+	\end{textblock*}
+}
+
+\setbeamertemplate{footline}
+{
+	\includegraphics[width=\paperwidth, height=.15cm]{images/topFrame}\\
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+			\hspace*{.2cm}
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.33333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+				\insertdate
+				\hspace*{.2cm}
+				\insertframenumber{} / \inserttotalframenumber
+				\hspace{.2cm}
+		\end{beamercolorbox}}%
+	\vskip0pt%
+}
+
+\mode<all>

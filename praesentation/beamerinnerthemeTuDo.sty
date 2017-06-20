@@ -1,0 +1,47 @@
+\setbeamertemplate{background}{
+  \includegraphics[width=\paperwidth, height=\paperheight]{images/background}
+}
+
+% Title page
+\defbeamertemplate*{title page}{texsx}[1][]
+{	
+	\vfill
+	\begin{columns}
+		\begin{column}{.49\paperwidth}
+			\begin{beamercolorbox}[wd=.49\paperwidth,leftskip=1cm,sep=8pt,#1]{title page header}
+				\centering
+				\usebeamerfont{title}\huge\inserttitle\par%
+			\end{beamercolorbox}%
+			\vskip0.75cm%
+			\begin{beamercolorbox}[wd=.49\paperwidth,leftskip=1cm,#1]{author}
+				\centering
+				\usebeamerfont{author}\insertauthor%
+			\end{beamercolorbox}
+			\vskip0.2cm%
+			\begin{beamercolorbox}[wd=.49\paperwidth, leftskip=1cm,#1]{institute}
+				\centering
+				\usebeamerfont{institute}\insertinstitute
+			\end{beamercolorbox}
+			\vskip0.2cm%
+			\begin{beamercolorbox}[wd=.49\paperwidth,leftskip=1cm,#1]{date}
+				\centering
+				\usebeamerfont{date}\insertdate%
+			\end{beamercolorbox}
+		\end{column}
+	
+		\begin{column}{.49\paperwidth}
+			\centering
+			\begin{tcolorbox}[beamer, 
+				width=0.4\paperwidth,
+				arc=0pt,
+				boxsep=0pt,
+				left=0pt,right=0pt,top=0pt,bottom=0pt,
+				]
+				\includegraphics[width=0.4\paperwidth]{images/titlepage}
+			\end{tcolorbox}
+		\end{column}
+	\end{columns}
+   	\vfill
+}
+
+\mode<all>
