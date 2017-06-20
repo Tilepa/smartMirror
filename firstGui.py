@@ -34,8 +34,8 @@ class Application(Tk):
         self.todayTodosFrame = TodayTodosFrame(master, width=widthTDF, height=heightGeneral)
         self.kalenderFrame = CalenderFrame(master, width=widthKF, height=heightGeneral)
 
-        self.generalInformation.grid(row=0, column=0, rowspan=1, columnspan=1, sticky="nsew")
-        self.todayTodosFrame.grid(row=0, column=1, rowspan=1, columnspan=1, sticky="nsew")
+        self.generalInformation.grid(row=0, column=0, rowspan=1, columnspan=1, sticky="nsw")
+        self.todayTodosFrame.grid(row=0, column=1, rowspan=1, columnspan=1, sticky="nse")
         self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky="nsew")
         self.kalenderFrame.grid(row=2, column=0, rowspan=1, columnspan=2, sticky="nsew")
 
