@@ -1,10 +1,9 @@
 import time
 from tkinter import *
+
+from controller.teperatureSensor import get_actual_temperature
 from controller.weatherInformation import *
 from controller.googleAccess import *
-from controller.positions import *
-from PIL import Image
-from PIL import ImageTk
 
 from view.components.seperator import Seperator
 from view.components.weatherForecastComponent import WeatherForecastComponent
@@ -65,6 +64,10 @@ class GeneralInformationFrame(Frame):
         actual_weather_max_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
         actual_weather_max_label.grid(row=2, column=1, sticky="nsew")
 
+        actual_temp_label = Label(weather_component, text="lokale Temperatur: ")
+        actual_temp_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        actual_temp_label.grid(row=3, column=0, columnspan=2, sticky="nsew")
+
         self.actual_weather_min_temperature = Label(weather_component)
         self.actual_weather_min_temperature.configure(bg=background_color, fg=text_color, font=(font_type, 15))
         self.actual_weather_min_temperature.grid(row=1, column=2, sticky="nsew")
@@ -72,6 +75,10 @@ class GeneralInformationFrame(Frame):
         self.actual_weather_max_temperature = Label(weather_component)
         self.actual_weather_max_temperature.configure(bg=background_color, fg=text_color, font=(font_type, 15))
         self.actual_weather_max_temperature.grid(row=2, column=2, sticky="nsew")
+
+        self.actual_temp = Label(weather_component)
+        self.actual_temp.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        self.actual_temp.grid(row=3, column=2, sticky="nsew")
 
         weather_component.grid(row=0, column=1)
 
@@ -97,6 +104,7 @@ class GeneralInformationFrame(Frame):
         self.update_time()
         self.update_weather()
         self.update_weather_image()
+        self.update_local_temperature()
 
     def update_time(self):
         new_date = time.strftime("%A, %d %b %Y")
@@ -133,3 +141,10 @@ class GeneralInformationFrame(Frame):
 
         self.after(360000, self.update_weather_image)
 
+    def update_local_temperature(self):
+        new_temp = get_actual_temperature()
+
+        if new_temp != self.actual_temp.__getitem__("text"):
+            self.actual_temp.configure(text=new_temp)
+
+        self.after(360000, self.update_local_temperature)
