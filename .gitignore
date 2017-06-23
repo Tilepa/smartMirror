@@ -102,3 +102,19 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+*.out
+
+*.aux
+
+*.vrb
+
+*.toc
+
+*.gz
+
+*.snm
+
+*.pdf
+
+*.nav
