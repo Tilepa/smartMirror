@@ -13,3 +13,5 @@ NEWS_URL = "http://feeds.t-online.de/rss/nachrichten"
 
 # is the count, how many news should be shown in the newsBlockFrame
 count_news = 4
+
+temperature_id = "28-000005d2e508"
