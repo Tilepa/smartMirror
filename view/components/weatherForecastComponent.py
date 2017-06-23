@@ -42,6 +42,7 @@ class WeatherForecastComponent(Frame):
         max_text_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
         max_text_label.grid(row=3, column=1, sticky="nsew")
 
+
         self.max_label = Label(self, text=self.forecast.min_temp)
         self.max_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
         self.max_label.grid(row=4, column=1, sticky="nsew")
