@@ -20,16 +20,16 @@ class GeneralInformationFrame(Frame):
         time_frame = Frame(self, bg=background_color)
 
         self.current_time_label = Label(time_frame)
-        self.current_time_label.configure(bg=background_color, fg=text_color, font=(font_type, 60))
+        self.current_time_label.configure(bg=background_color, fg=text_color, font=(font_type, time_size))
         self.current_time_label.grid(row=0, column=0, sticky="nw")
 
         self.seconds_label = Label(time_frame)
-        self.seconds_label.configure(bg=background_color, fg=text_color, font=(font_type, 25))
+        self.seconds_label.configure(bg=background_color, fg=text_color, font=(font_type, int(time_size/2)))
         self.seconds_label.grid(row=0, column=1, sticky="nw")
 
         # DATE: Label für die Anzeige des Datums im Format (TTT, TT. MMM YYYY)
         self.current_date_label = Label(time_frame)
-        self.current_date_label.configure(bg=background_color, fg=text_color, font=(font_type, 25))
+        self.current_date_label.configure(bg=background_color, fg=text_color, font=(font_type, date_size))
         self.current_date_label.grid(row=1, column=0, columnspan=2, sticky="nsew")
 
         time_frame.grid(row=0, column=0)
@@ -47,37 +47,37 @@ class GeneralInformationFrame(Frame):
 
         self.image_actual_weather = get_weather_image()
 
-        self.actual_weather_image_view = Label(weather_component, width=60, height=60, image=self.image_actual_weather)
+        self.actual_weather_image_view = Label(weather_component, width=weather_image_size, height=weather_image_size, image=self.image_actual_weather)
         self.actual_weather_image_view.image = self.image_actual_weather
         self.actual_weather_image_view.configure(bg=background_color, fg=text_color)
         self.actual_weather_image_view.grid(row=0, column=0, rowspan=3)
 
         self.actual_weather_temperature = Label(weather_component)
-        self.actual_weather_temperature.configure(bg=background_color, fg=text_color, font=(font_type, 25))
+        self.actual_weather_temperature.configure(bg=background_color, fg=text_color, font=(font_type, actual_weather_size))
         self.actual_weather_temperature.grid(row=0, column=1, columnspan=2, sticky="nse")
 
         actual_weather_min_label = Label(weather_component, text="min: ")
-        actual_weather_min_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        actual_weather_min_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         actual_weather_min_label.grid(row=1, column=1, sticky="nsew")
 
         actual_weather_max_label = Label(weather_component, text="max: ")
-        actual_weather_max_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        actual_weather_max_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         actual_weather_max_label.grid(row=2, column=1, sticky="nsew")
 
         actual_temp_label = Label(weather_component, text="lokale Temperatur: ")
-        actual_temp_label.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        actual_temp_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         actual_temp_label.grid(row=3, column=0, columnspan=2, sticky="nsew")
 
         self.actual_weather_min_temperature = Label(weather_component)
-        self.actual_weather_min_temperature.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        self.actual_weather_min_temperature.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         self.actual_weather_min_temperature.grid(row=1, column=2, sticky="nsew")
 
         self.actual_weather_max_temperature = Label(weather_component)
-        self.actual_weather_max_temperature.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        self.actual_weather_max_temperature.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         self.actual_weather_max_temperature.grid(row=2, column=2, sticky="nsew")
 
         self.actual_temp = Label(weather_component)
-        self.actual_temp.configure(bg=background_color, fg=text_color, font=(font_type, 15))
+        self.actual_temp.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         self.actual_temp.grid(row=3, column=2, sticky="nsew")
 
         weather_component.grid(row=0, column=1)
@@ -118,7 +118,7 @@ class GeneralInformationFrame(Frame):
         if new_seconds != self.seconds_label.__getitem__("text"):
             self.seconds_label.configure(text=new_seconds)
 
-        self.after(200, self.update_time)
+        self.after(time_update, self.update_time)
 
     def update_weather(self):
         new_temp = str(get_current_temperature()) + "°C"
@@ -132,14 +132,14 @@ class GeneralInformationFrame(Frame):
         if new_temp_max != self.actual_weather_max_temperature.__getitem__("text"):
             self.actual_weather_max_temperature.configure(text=new_temp_max)
 
-        self.after(360000, self.update_weather)
+        self.after(weather_update, self.update_weather)
 
     def update_weather_image(self):
         self.image_actual_weather = get_weather_image()
         self.actual_weather_image_view.configure(image=self.image_actual_weather)
         self.actual_weather_image_view.image = self.image_actual_weather
 
-        self.after(360000, self.update_weather_image)
+        self.after(weather_update, self.update_weather_image)
 
     def update_local_temperature(self):
         new_temp = get_actual_temperature()
@@ -147,4 +147,4 @@ class GeneralInformationFrame(Frame):
         if new_temp != self.actual_temp.__getitem__("text"):
             self.actual_temp.configure(text=new_temp)
 
-        self.after(360000, self.update_local_temperature)
+        self.after(temperature_sensor_update, self.update_local_temperature)

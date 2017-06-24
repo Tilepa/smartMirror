@@ -26,7 +26,7 @@ class NewsBlockFrame(Frame):
     def show_news(self):
         self.entry_views_frame = Frame(self)
         self.entry_views_frame.configure(width=self.news_entry_width, padx=20, bg=background_color)
-        self.news_entries = get_news(4)
+        self.news_entries = get_news(count_news)
 
         row = 0
 
@@ -35,12 +35,12 @@ class NewsBlockFrame(Frame):
             entry_view.configure(width=self.news_entry_width, bg=background_color)
 
             title_label = Label(entry_view, text=news_entry.title)
-            title_label.configure(font=(font_type, 16), bg=background_color, fg=text_color,
+            title_label.configure(font=(font_type, news_title_size), bg=background_color, fg=text_color,
                                   wraplength=self.news_entry_width)
             title_label.grid(row=0, column=0, sticky="nw")
 
             description_label = Label(entry_view, text=news_entry.description + " ...")
-            description_label.configure(font=(font_type, 14), bg=background_color, fg=text_color,
+            description_label.configure(font=(font_type, news_description_size), bg=background_color, fg=text_color,
                                         anchor=NW, justify=LEFT, wraplength=self.news_entry_width)
             description_label.grid(row=1, column=0, sticky="nw")
 
@@ -52,4 +52,4 @@ class NewsBlockFrame(Frame):
 
         self.entry_views_frame.grid(row=1, column=0, sticky="nsew")
 
-        self.after(600000, self.show_news)
+        self.after(news_update, self.show_news)

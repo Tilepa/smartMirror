@@ -17,7 +17,7 @@ class TodayTodosFrame(Frame):
         self.calendarEntries = get_next_20_calendar_entries()
 
         title = Label(self, text="Nächste Kalenderereignisse")
-        title.configure(font=(font_type, 25), bg=background_color, fg=text_color)#, pady=30, padx=50)
+        title.configure(font=(font_type, font_title_size), bg=background_color, fg=text_color)#, pady=30, padx=50)
         title.grid(sticky=W)
 
         self.update_calendar_entries()
@@ -36,23 +36,23 @@ class TodayTodosFrame(Frame):
             entry_frame.configure(padx=10, pady=10)
 
             title_label = Label(entry_frame, text=calendar_title)
-            title_label.configure(font=(font_type, 16), bg=background_color, fg=text_color)
+            title_label.configure(font=(font_type, calendar_title_size), bg=background_color, fg=text_color)
             title_label.grid(row=0, column=0, columnspan=2, sticky="nsw")
 
             start_label = Label(entry_frame, text=start_string)
-            start_label.configure(bg=background_color, fg=text_color)
+            start_label.configure(bg=background_color, fg=text_color, font=(font_type, start_end_size))
             start_label.grid(row=1, column=0, sticky="nsw")
 
             end_label = Label(entry_frame, text=end_string)
-            end_label.configure(bg=background_color, fg=text_color)
+            end_label.configure(bg=background_color, fg=text_color, font=(font_type, start_end_size))
             end_label.grid(row=1, column=1, sticky="nsw")
 
             start_date_label = Label(entry_frame, text=start_date_string)
-            start_date_label.configure(bg=background_color, fg=text_color)
+            start_date_label.configure(bg=background_color, fg=text_color, font=(font_type, start_end_dates_size))
             start_date_label.grid(row=2, column=0, sticky="nsew")
 
             end_date_label = Label(entry_frame, text=end_date_string)
-            end_date_label.configure(bg=background_color, fg=text_color)
+            end_date_label.configure(bg=background_color, fg=text_color, font=(font_type, start_end_dates_size))
             end_date_label.grid(row=2, column=1, sticky="nsew")
 
             seperator = Seperator(entry_frame)
@@ -61,4 +61,4 @@ class TodayTodosFrame(Frame):
             entry_frame.grid(row=row, column=0, sticky="nsw")
             row += 1
 
-        self.after(600000, self.update_calendar_entries)
+        self.after(calendar_update, self.update_calendar_entries)
