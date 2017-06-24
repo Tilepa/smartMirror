@@ -32,6 +32,10 @@ calendar_title_size = 16
 start_end_size = 14
 start_end_dates_size = 14
 
+#WeatherForecastComponent
+forecast_image_size = 50
+forecast_extrema_size = 12
+
 #Update times
 time_update = 200
 weather_update = 360000
@@ -40,3 +44,5 @@ temperature_sensor_update = 1000000
 news_update = 600000
 
 calendar_update = 600000
+
+forecast_update = 600000
