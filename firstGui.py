@@ -1,6 +1,3 @@
-import time
-import os
-from multiprocessing import Process
 from tkinter import *
 
 from model.configurations import background_color
@@ -9,10 +6,8 @@ from view.calenderFrame import CalenderFrame
 from view.todayTodosFrame import TodayTodosFrame
 from view.newsBlockFrame import NewsBlockFrame
 
-terminate_time = False
 
-
-class Application(Tk):
+class Application(Frame):
     generalInformation = GeneralInformationFrame
     newsBlockFrame = NewsBlockFrame
     todayTodosFrame = TodayTodosFrame
@@ -25,7 +20,7 @@ class Application(Tk):
     fullscreen = True
 
     def __init__(self, master):
-        Tk.__init__(self)
+        Frame.__init__(self)
         self.master = master
         master.configure(background=background_color)
 
@@ -52,18 +47,12 @@ class Application(Tk):
         self.master.attributes("-fullscreen", self.fullscreen)
 
 
-#if __name__ == "__main__":
-#    root = Toplevel()
-#    root.title("Smart Mirror")
-#    root.overrideredirect(0)
-#    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-#    application = Application(root)
-#    root.mainloop()
-
-
-root = Toplevel()
-root.title("SmartMirror")
-root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-application = Application(root)
-root.mainloop()
+if __name__ == "__main__":
+    root = Toplevel()
+    root.title("Smart Mirror")
+    root.master.withdraw()
+    root.overrideredirect(0)
+    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+    application = Application(root)
+    root.mainloop()
 
