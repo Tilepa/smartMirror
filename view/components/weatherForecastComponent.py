@@ -1,7 +1,8 @@
 import datetime
 from tkinter import *
 from controller.weatherInformation import *
-from model.configurations import background_color, text_color, font_type
+from model.configurations import background_color, text_color, font_type, forecast_image_size, actual_extrema_size, \
+    forecast_update
 from view.components.seperator import SeperatorAsLine
 
 
@@ -27,24 +28,23 @@ class WeatherForecastComponent(Frame):
 
         self.image_label = Label(self, image=self.forecast_image)
         self.image_label.image = self.forecast_image
-        self.image_label.configure(bg=background_color, fg=text_color)
+        self.image_label.configure(bg=background_color, fg=text_color, width=forecast_image_size, height=forecast_image_size)
         self.image_label.grid(row=2, column=0, columnspan=2, sticky="nsew")
 
         min_text_label = Label(self, text="min")
-        min_text_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
+        min_text_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         min_text_label.grid(row=3, column=0, sticky="nsew")
 
         self.min_label = Label(self, text=self.forecast.min_temp)
-        self.min_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
+        self.min_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         self.min_label.grid(row=4, column=0, sticky="nsew")
 
         max_text_label = Label(self, text="max")
-        max_text_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
+        max_text_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         max_text_label.grid(row=3, column=1, sticky="nsew")
 
-
         self.max_label = Label(self, text=self.forecast.min_temp)
-        self.max_label.configure(bg=background_color, fg=text_color, font=(font_type, 12))
+        self.max_label.configure(bg=background_color, fg=text_color, font=(font_type, actual_extrema_size))
         self.max_label.grid(row=4, column=1, sticky="nsew")
 
         self.update_forecast()
@@ -63,4 +63,4 @@ class WeatherForecastComponent(Frame):
         self.image_label.configure(image=self.forecast_image)
         self.image_label.image = self.forecast_image
 
-        self.after(3600000, self.update_forecast)
+        self.after(forecast_update, self.update_forecast)

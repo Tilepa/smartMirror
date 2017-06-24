@@ -2,12 +2,15 @@ import time
 import os
 from multiprocessing import Process
 from tkinter import *
+
+from model.configurations import background_color
 from view.generalInformationFrame import GeneralInformationFrame
 from view.calenderFrame import CalenderFrame
 from view.todayTodosFrame import TodayTodosFrame
 from view.newsBlockFrame import NewsBlockFrame
 
 terminate_time = False
+
 
 class Application(Tk):
     generalInformation = GeneralInformationFrame
@@ -19,9 +22,14 @@ class Application(Tk):
     countColumns = 2
     countRows = 3
 
+    fullscreen = True
+
     def __init__(self, master):
         Tk.__init__(self)
-        master.configure(background="black")
+        self.master = master
+        master.configure(background=background_color)
+
+        master.bind("<space>", self.toggle_geometry)
 
         widthGI = self.winfo_screenwidth() / self.countColumns
         heightGeneral = self.winfo_screenheight() / self.countRows
@@ -39,11 +47,23 @@ class Application(Tk):
         self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky="nsew")
         self.kalenderFrame.grid(row=2, column=0, rowspan=1, columnspan=2, sticky="nsew")
 
+    def toggle_geometry(self, event):
+        self.fullscreen = not self.fullscreen
+        self.master.attributes("-fullscreen", self.fullscreen)
 
-if __name__ == "__main__":
-    root = Toplevel()
-    root.title("Smart Mirror")
-    root.overrideredirect(0)
-    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-    application = Application(root)
-    root.mainloop()
+
+#if __name__ == "__main__":
+#    root = Toplevel()
+#    root.title("Smart Mirror")
+#    root.overrideredirect(0)
+#    root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+#    application = Application(root)
+#    root.mainloop()
+
+
+root = Toplevel()
+root.title("SmartMirror")
+root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+application = Application(root)
+root.mainloop()
+
