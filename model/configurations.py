@@ -1,7 +1,7 @@
 text_color = "white"
 background_color = "black"
 
-font_title_size = 25
+font_title_size = 20
 font_type = "Yu Gothic Medium"
 
 seperator_height_visible = 2
@@ -14,27 +14,27 @@ NEWS_URL = "http://feeds.t-online.de/rss/nachrichten"
 temperature_id = "28-000005d2e508"
 
 #General Information
-time_size = 60
-date_size = 30
+time_size = 50
+date_size = 25
 
 weather_image_size = 60
 
-actual_weather_size = 25
-actual_extrema_size = 15
+actual_weather_size = 23
+actual_extrema_size = 12
 
 #NewsBlockFrame
-news_title_size = 16
-news_description_size = 14
+news_title_size = 14
+news_description_size = 10
 count_news = 4
 
 #CalendarFrame
 calendar_title_size = 16
 start_end_size = 14
-start_end_dates_size = 14
+start_end_dates_size = 13
 
 #WeatherForecastComponent
 forecast_image_size = 50
-forecast_extrema_size = 12
+forecast_extrema_size = 10
 
 #Update times
 time_update = 200

@@ -23,7 +23,7 @@ class Application(Frame):
         Frame.__init__(self)
         self.master = master
         master.configure(background=background_color)
-
+        master.attributes("-fullscreen", self.fullscreen)
         master.bind("<space>", self.toggle_geometry)
 
         widthGI = self.winfo_screenwidth() / self.countColumns
