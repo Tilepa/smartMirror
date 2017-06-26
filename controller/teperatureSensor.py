@@ -12,6 +12,6 @@ def get_actual_temperature():
         # linux
         sensor = Adafruit_DHT.DHT11
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin_of_tempsensor)
-        return temperature + ", " + humidity
+        return str(temperature) + "°C, " + str(humidity) + "%"
     else:
         return default_return_error
