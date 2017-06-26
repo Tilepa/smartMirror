@@ -10,8 +10,12 @@ seperator_height_invisible = 20
 APPLICATION_NAME = "Smart Mirror"
 
 NEWS_URL = "http://feeds.t-online.de/rss/nachrichten"
+WEATHER_API_KEY = '4731b498cb45d327e16017ec7f843eb1'
 
-temperature_id = "28-000005d2e508"
+pin_of_tempsensor = 4
+
+default_return_error = "n/a"
+default_icon_name = "01d"
 
 #General Information
 time_size = 50

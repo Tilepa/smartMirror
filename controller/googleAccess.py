@@ -43,17 +43,21 @@ def get_credentials():
 def get_next_20_calendar_entries():
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
-    service = discovery.build("calendar", "v3", http=http)
+    events = []
+    try:
+        service = discovery.build("calendar", "v3", http=http)
 
-    now = datetime.datetime.utcnow().isoformat() + "Z"
+        now = datetime.datetime.utcnow().isoformat() + "Z"
 
-    eventsResult = service.events().list(
-        calendarId="primary",
-        timeMin=now,
-        maxResults=20,
-        singleEvents="true",                # singleEvents must be set to true, otherwise orderBy startTime is not allowed
-        orderBy="startTime").execute()
-    events = eventsResult.get("items", [])
+        eventsResult = service.events().list(
+            calendarId="primary",
+            timeMin=now,
+            maxResults=20,
+            singleEvents="true",                # singleEvents must be set to true, otherwise orderBy startTime is not allowed
+            orderBy="startTime").execute()
+        events = eventsResult.get("items", [])
+    except:
+        pass
 
     calendarEntries = []
     for event in events:

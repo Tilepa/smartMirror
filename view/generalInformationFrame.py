@@ -121,9 +121,16 @@ class GeneralInformationFrame(Frame):
         self.after(time_update, self.update_time)
 
     def update_weather(self):
-        new_temp = str(get_current_temperature()) + "°C"
-        new_temp_min = str(get_min_temperature()) + "°C"
-        new_temp_max = str(get_max_temperature()) + "°C"
+
+        new_temp = str(get_current_temperature())
+        if new_temp != default_return_error:
+            new_temp += "°C"
+        new_temp_min = str(get_min_temperature())
+        if new_temp_min != default_return_error:
+            new_temp_min += "°C"
+        new_temp_max = str(get_max_temperature())
+        if new_temp_max != default_return_error:
+            new_temp_max += "°C"
 
         if new_temp != self.actual_weather_temperature.__getitem__("text"):
             self.actual_weather_temperature.configure(text=new_temp)

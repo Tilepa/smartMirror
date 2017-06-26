@@ -52,8 +52,12 @@ class WeatherForecastComponent(Frame):
     def update_forecast(self):
         self.forecast = get_forecast(day=self.day)
 
-        min_text = str(self.forecast.min_temp) + " °C"
-        max_text = str(self.forecast.max_temp) + " °C"
+        min_text = str(self.forecast.min_temp)
+        if min_text != default_return_error:
+            min_text += "°C"
+        max_text = str(self.forecast.max_temp)
+        if max_text != default_return_error:
+            max_text += "°C"
 
         self.min_label.configure(text=min_text)
         self.max_label.configure(text=max_text)
