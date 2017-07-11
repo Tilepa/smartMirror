@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Mirror</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <h1>SMART MIRROR</h1>
+    </div>
+    <div id="content">
+        <!--Generel information-->
+        <section id="section-information">
+            <h2>Informationen</h2>
+            <hr>
+            <form>
+                <ul id="list-information">
+                    <li>
+                        <label for="sys-start">Systemstart:</label>
+                        <input id="sys-start" type="text" readonly name="sys-start">
+                    </li>
+                    <li>
+                        <label for="bg">Hintergrundfarbe:</label>
+                        <input id="bg" type="text" name="bg">
+                    </li>
+                    <li>
+                        <label for="fg">Schriftfarbe:</label>
+                        <input id="fg" type="text" name="fg">
+                    </li>
+                    <li>
+                        <label for="font">Schriftart:</label>
+                        <input id="fot" type="text" name="font">
+                    </li>
+                </ul> <br>
+
+                <div id="div-reboot">
+                    <input id="reboot" type="button" name="reboot" value="System neustarten!">
+                </div>
+            </form>
+
+        </section>
+
+        <!--Weather infromation-->
+        <section id="section-weather">
+            <h2>Wettereinstellungen</h2>
+            <hr>
+            <form>
+                <ul id="list-weather">
+                    <li>
+                        <label id="test" for="api-key">API-Key:</label>
+                        <input id="api-key" type="text" name="api">
+                    </li>
+                    <li>
+                        <label for="lat">lat:</label>
+                        <input id="lat" type="text" name="lat">
+                    </li>
+                    <li>
+                        <label for="lon">lon:</label>
+                        <input id="lon" type="text" name="lon">
+                    </li>
+                </ul>
+            </form>
+        </section>
+
+        <!--Birthdaylist-->
+        <section id="section-birthday">
+            <h2>Geburtstagsliste</h2>
+            <hr>
+
+            <form id="new-birthday" method="post">
+                <fieldset>
+                    <legend>Neuen Geburtstag hinzufügen</legend>
+                    <label for="new-name">Name:</label>
+                    <input id="new-name" type="text" name="new-name" placeholder="Vorname Nachname">
+
+                    <label for="new-bday">Geburtsdatum</label>
+                    <input id="new-bday" type="date" name="new-name" placeholder="01.01.2000">
+
+                    <input id="new-entry" type="button" name="new-entry" value="speichern">
+                </fieldset>
+            </form>
+
+            <div id="div-birthdaylist">
+                <ol id="list-birthday">
+                    <li>
+                        Max Musterman (30), 28.02.1987
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Aller;
+    src: url(fonts/Aller/Aller_Rg.ttf);
+}
+@media screen {
+
+}
+
+html {
+    font-family: Aller ;
+}
+#content, #header {
+    width: 60%;
+    margin: 0px auto;
+}
+input {
+    border-radius: 4px;
+    border: none;
+    background: #efefef;
+    padding: 8px;
+    width: auto;
+}
+label {
+    display: inline-block;
+    padding: 12px;
+    width: 140px;
+    text-align: right;
+}
+#div-reboot {
+    text-align: center;
+}
+#reboot {
+    background-color: firebrick;
+    color: #efefef;
+}
+#list-weather, #list-information {
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+/*-----Birthday section-----*/
+fieldset {
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+fieldset label {
+    width: auto;
+}
+fieldset legend {
+    font-size: small;
+}
+#new-name {
+    width: 250px;
+}
+#new-bday {
+    width: 100px;
+}
+#new-entry {
+    background: dodgerblue;
+    color: #efefef;
+    width: auto;
+    margin-left: 20px;
+}
+#div-birthdaylist {
+    text-align: center;
+}
+#list-birthday {
+    display: inline-block;
+    width: auto;
+}
+
+
+
+
+
