@@ -2,16 +2,12 @@
     font-family: Aller;
     src: url(fonts/Aller/Aller_Rg.ttf);
 }
-@media screen {
-
-}
-
 html {
-    font-family: Aller ;
+    font-family: Aller, serif ;
 }
 #content, #header {
     width: 60%;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 input {
     border-radius: 4px;
@@ -22,9 +18,12 @@ input {
 }
 label {
     display: inline-block;
-    padding: 12px;
+    padding: 10px;
     width: 140px;
     text-align: right;
+}
+#sys-start {
+    background: transparent;
 }
 #div-reboot {
     text-align: center;
@@ -38,6 +37,11 @@ label {
     list-style: none;
     margin-bottom: 30px;
 }
+/*-----Information section-----*/
+#rss {width: 300px;}
+
+/*-----Wether sevtion-----*/
+#api-key {width: 300px;}
 
 /*-----Birthday section-----*/
 fieldset {
@@ -45,6 +49,7 @@ fieldset {
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
+    width: auto;
 }
 fieldset label {
     width: auto;
@@ -53,7 +58,7 @@ fieldset legend {
     font-size: small;
 }
 #new-name {
-    width: 250px;
+    width: 200px;
 }
 #new-bday {
     width: 100px;
@@ -70,6 +75,32 @@ fieldset legend {
 #list-birthday {
     display: inline-block;
     width: auto;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+    label {
+        display: block;
+        padding: 0;
+        padding-top: 8px;
+        width: auto;
+        text-align: left;
+        font-size: small;
+    }
+    input {
+        width: auto;
+        display: block;
+    }
+    body {
+        text-align: center;
+    }
+    #header, #content {
+        width: 80%;
+        text-align: center;
+        display: inline-table;
+    }
 }
 
 

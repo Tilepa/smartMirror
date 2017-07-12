@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <title>Smart Mirror</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        function getDate() {
+            var jetzt = new Date(),
+                tag = jetzt.getDay(),
+                monat = jetzt.getMonth(),
+                jahr = jetzt.getYear(),
+                stunde = jetzt.getHours(),
+                minuten = jetzt.getMinutes(),
+                sekunden = jetzt.getSeconds();
+            if (tag < 10) {tag = '0' + tag}
+            if (monat < 10) {monat = '0' + monat}
+            var ausgabe = tag + "." + monat + "." + jahr + ", " + stunde + ":" + minuten + ":" + sekunden;
+            document.getElementById('sys-start').value = ausgabe;
+        }
+    </script>
+
 </head>
 <body>
     <div id="header">
@@ -18,7 +35,8 @@
                 <ul id="list-information">
                     <li>
                         <label for="sys-start">Systemstart:</label>
-                        <input id="sys-start" type="text" readonly name="sys-start">
+                        <input id="sys-start" type="text" readonly name="sys-start" value=>
+                        <script>getDate()</script>
                     </li>
                     <li>
                         <label for="bg">Hintergrundfarbe:</label>
@@ -30,7 +48,11 @@
                     </li>
                     <li>
                         <label for="font">Schriftart:</label>
-                        <input id="fot" type="text" name="font">
+                        <input id="font" type="text" name="font">
+                    </li>
+                    <li>
+                        <label for="rss">RSS-URL:</label>
+                        <input id="rss" type="text" name="font" value="http://feeds.t-online.de/rss/nachrichten">
                     </li>
                 </ul> <br>
 
@@ -48,8 +70,8 @@
             <form>
                 <ul id="list-weather">
                     <li>
-                        <label id="test" for="api-key">API-Key:</label>
-                        <input id="api-key" type="text" name="api">
+                        <label for="api-key">API-Key:</label>
+                        <input id="api-key" type="text" name="api" value="4731b498cb45d327e16017ec7f843eb1">
                     </li>
                     <li>
                         <label for="lat">lat:</label>
