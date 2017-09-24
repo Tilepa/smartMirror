@@ -1,3 +1,4 @@
+import threading
 from tkinter import *
 
 from controller.motionSensor import start_motion_detection
@@ -43,7 +44,9 @@ class Application(Frame):
         self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky="nsew")
         self.kalenderFrame.grid(row=2, column=0, rowspan=1, columnspan=2, sticky="nsew")
 
-        start_motion_detection()
+        t = threading.Thread(target=start_motion_detection)
+        t.daemon = True
+        t.start()
 
     def toggle_geometry(self, event):
         self.fullscreen = not self.fullscreen
