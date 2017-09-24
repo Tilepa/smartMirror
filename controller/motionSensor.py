@@ -18,7 +18,7 @@ def start_motion_detection():
 
         GPIO.add_event_detect(SENSOR_PIN, GPIO.RISING, callback=motion_detected)
         while True:
-            time.sleep(100)
+            time.sleep(30)
 
             check_for_motion()
         GPIO.cleanup()
