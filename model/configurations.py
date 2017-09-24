@@ -50,3 +50,5 @@ news_update = 600000
 calendar_update = 600000
 
 forecast_update = 600000
+
+SENSOR_PIN = 23

@@ -1,5 +1,6 @@
 from tkinter import *
 
+from controller.motionSensor import start_motion_detection
 from model.configurations import background_color
 from view.generalInformationFrame import GeneralInformationFrame
 from view.calenderFrame import CalenderFrame
@@ -41,6 +42,8 @@ class Application(Frame):
         self.todayTodosFrame.grid(row=0, column=1, rowspan=1, columnspan=1, sticky="nse")
         self.newsBlockFrame.grid(row=1, column=0, rowspan=1, columnspan=2, sticky="nsew")
         self.kalenderFrame.grid(row=2, column=0, rowspan=1, columnspan=2, sticky="nsew")
+
+        start_motion_detection()
 
     def toggle_geometry(self, event):
         self.fullscreen = not self.fullscreen
