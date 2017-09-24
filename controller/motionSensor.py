@@ -37,7 +37,6 @@ def check_for_motion():
     if motion == 1:
         show_ui()
         motion = 0
-        time.sleep(60)
     else:
         shut_down_ui()
 

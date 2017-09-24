@@ -27,9 +27,9 @@ print ("Bereit...")
 
 # Callback-Funktion
 def MOTION(PIR_GPIO):
-  print ("%s - Bewegung erkannt!") % datetime.datetime.now()
+  print ("%s - Bewegung erkannt!")
 
-print ("%s - Warten auf Bewegung") % datetime.datetime.now()
+print ("%s - Warten auf Bewegung")
 
 try:
   # Ereignis definieren: steigende Flanke

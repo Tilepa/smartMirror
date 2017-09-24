@@ -2,8 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import datetime
  
-print "BEWEGUNGSMELDER"
-print ""
+print ("BEWEGUNGSMELDER")
  
 #Board Mode: Angabe der Pin-Nummer
 GPIO.setmode(GPIO.BOARD)
@@ -19,7 +18,7 @@ try:
  #PIR auslesen
  while GPIO.input(PIR_GPIO)==1:
    read=0
- print "WARTEN auf Bewegung..."
+ print ("WARTEN auf Bewegung...")
  
  #Abbruch ctrl+c
  while True : 
@@ -27,15 +26,15 @@ try:
    read = GPIO.input(PIR_GPIO)
    
    if read==1 and wait==0: 
-     print "ALARM %s: Bewegung erkannt!" % datetime.datetime.now() 
+     print ("ALARM %s: Bewegung erkannt!" % datetime.datetime.now() )
      wait=1
  
    elif read==0 and wait==1: 
-     print "WARTEN auf Bewegung..." 
+     print ("WARTEN auf Bewegung..." )
      wait=0
  
  time.sleep(0.01)
  
 except KeyboardInterrupt:
- print "Beendet"
+ print ("Beendet")
  GPIO.cleanup()
