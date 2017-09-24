@@ -30,6 +30,8 @@ def motion_detected(channel):
         global motion
         motion = 1
 
+        check_for_motion()
+
 
 def check_for_motion():
     global motion
